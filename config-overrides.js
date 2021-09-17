@@ -1,5 +1,6 @@
 const { override, fixBabelImports, addLessLoader} = require('customize-cra');
 const { getThemeVariables } = require('antd/dist/theme');
+const { removeModuleScopePlugin } = require('customize-cra')
 module.exports = override(
     fixBabelImports('import', {
         libraryName: 'antd',
@@ -14,4 +15,6 @@ module.exports = override(
         //     compact: true, // 开启紧凑模式
         // }),
     }),
+    removeModuleScopePlugin(), //移除CRA的插件来防止从src意外的文件夹导入模块
+
 );

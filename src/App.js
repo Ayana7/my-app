@@ -1,14 +1,17 @@
-import logo from './logo.svg';
-import { Button } from 'antd';
 import './App.css';
+import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom'
+import Login from './pages/login/login';
+import Admin from './pages/admin/admin';
 
-import Login from './pages/login';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Login/>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/" component={Admin} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
